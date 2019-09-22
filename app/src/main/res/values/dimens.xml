@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ /*
+  ~  *    Copyright (C) 2019 Sivakumar Chellamuthu
+  ~  *
+  ~  *    Licensed under the Apache License, Version 2.0 (the "License");
+  ~  *    you may not use this file except in compliance with the License.
+  ~  *    You may obtain a copy of the License at
+  ~  *
+  ~  *        http://www.apache.org/licenses/LICENSE-2.0
+  ~  *
+  ~  *    Unless required by applicable law or agreed to in writing, software
+  ~  *    distributed under the License is distributed on an "AS IS" BASIS,
+  ~  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  *    See the License for the specific language governing permissions and
+  ~  *    limitations under the License.
+  ~  */
+  -->
+
+<resources>
+    <!--Emphasis modifiers for "on" colors-->
+    <!-- High emphasis of 87% for type. -->
+    <dimen name="alpha_emphasis_high">@dimen/material_emphasis_high_type</dimen>
+    <!-- Medium emphasis of 60% is the same for type and icon. -->
+    <dimen name="alpha_emphasis_medium">@dimen/material_emphasis_medium</dimen>
+    <!-- Disabled emphasis of 38% is the same for type and icon. -->
+    <dimen name="alpha_emphasis_disabled">@dimen/material_emphasis_disabled</dimen>
+
+    <item name="material_emphasis_high_type" format="float" type="dimen">0.87</item>
+    <item name="material_emphasis_medium" format="float" type="dimen">0.6</item>
+    <item name="material_emphasis_disabled" format="float" type="dimen">0.38</item>
+
+
+    <dimen name="key_line_0">2dp</dimen>
+    <dimen name="key_line_1">4dp</dimen>
+    <dimen name="key_line_2">8dp</dimen>
+    <dimen name="key_line_3">12dp</dimen>
+    <dimen name="key_line_4">16dp</dimen>
+    <dimen name="key_line_5">24dp</dimen>
+    <dimen name="key_line_6">32dp</dimen>
+    <dimen name="key_line_7">40dp</dimen>
+    <dimen name="key_line_8">48dp</dimen>
+
+    <dimen name="navigation_icon_normal">40dp</dimen>
+    <dimen name="navigation_icon_shrunk">32dp</dimen>
+    <dimen name="navigation_icon_padding">4dp</dimen>
+    <dimen name="navigation_home_icon_normal">68dp</dimen>
+    <dimen name="navigation_home_icon_shrunk">48dp</dimen>
+
+    <dimen name="navigation_icon_with_parent_side_margin">24dp</dimen>
+    <dimen name="navigation_icon_with_home_side_margin">60dp</dimen>
+
+    <dimen name="navigation_icon_bottom_margin_normal">48dp</dimen>
+    <dimen name="navigation_icon_bottom_margin_shrunk">16dp</dimen>
+
+    <dimen name="card_panel_radius">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+
+    <dimen name="tool_bar_height">70dp</dimen>
+
+</resources>

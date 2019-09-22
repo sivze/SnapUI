@@ -1,0 +1,109 @@
+<!--
+  ~ /*
+  ~  *    Copyright (C) 2019 Sivakumar Chellamuthu
+  ~  *
+  ~  *    Licensed under the Apache License, Version 2.0 (the "License");
+  ~  *    you may not use this file except in compliance with the License.
+  ~  *    You may obtain a copy of the License at
+  ~  *
+  ~  *        http://www.apache.org/licenses/LICENSE-2.0
+  ~  *
+  ~  *    Unless required by applicable law or agreed to in writing, software
+  ~  *    distributed under the License is distributed on an "AS IS" BASIS,
+  ~  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  *    See the License for the specific language governing permissions and
+  ~  *    limitations under the License.
+  ~  */
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!--
+            list of material components
+            https://material.io/components/
+            material component docs
+            https://github.com/material-components/material-components-android/tree/master/docs/components -->
+
+    <!--
+    https://material.io/design/color/dark-theme.html#ui-application
+    -->
+
+    <style name="Widget.MyTheme.Button" parent="Widget.MaterialComponents.Button">
+        <!--
+        Material Buttons include four main variants that all inherit from the base Widget.MaterialComponents.Button style, each with an optional
+        style suffix: raised (default, no suffix), unelevated (*.UnelevatedButton), outlined (*.OutlinedButton) and text (*.TextButton).
+        All button variants use the textAppearanceButton theme attribute for their typography styles.
+
+
+        backgroundTint: The tint color applied to the button background. The default enabled color is transparent for text buttons and colorPrimary for all other variants.
+        iconTint: The tint color applied to an optional button icon. The default enabled color is colorPrimary for text buttons and colorOnPrimary for all other variants.
+        rippleColor: The color of the button touch ripple. The default color is colorOnPrimary for raised/unelevated buttons and colorPrimary for outlined/text buttons.
+        strokeColor: The color of the stroke around the button background. The default color is colorOnSurface for outlined buttons and transparent for all other variants.
+        strokeWidth: The width of the stroke around the button background. The default value is 1dp for outlined buttons and 0dp for all other variants.
+        shapeAppearance: The shape appearance of the button background. The default value is shapeAppearanceSmallComponent.
+        -->
+    </style>
+
+    <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="AppTextField" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <!--
+        boxBackgroundMode: The mode of the box background, which can be either filled, outline or none.
+        boxBackgroundColor: The color of the text field background. The default enabled color is colorOnSurface for filled box text fields and transparent for outlined box text fields.
+        boxStrokeColor: The color of the stroke around the text field background. The default color is colorOnSurface (in default state) for outlined box text fields and is ignored for filled box text fields.
+        hintTextColor/errorTextColor/counterTextColor: Various colors for different “helper” text sub-components.
+        shapeAppearance: The shape appearance of the text field background. The default value is shapeAppearanceSmallComponent.
+        -->
+    </style>
+
+    <style name="Widget.MyTheme.CardView" parent="Widget.MaterialComponents.CardView">
+        <!--
+        cardBackgroundColor: The color of the card background. The default color is colorSurface.
+        cardElevation: The elevation of the card. The default value is 1dp.
+        shapeAppearance: The shape appearance of the card background. The default value is shapeAppearanceMediumComponent.
+        -->
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <style name="LeftPanelCard" parent="Widget.MyTheme.CardView">
+        <item name="shapeAppearance">@style/ShapeAppearance.MyTheme.MediumComponent.LeftPanelCard</item>
+    </style>
+
+    <style name="RightPanelCard" parent="Widget.MyTheme.CardView">
+        <item name="shapeAppearance">@style/ShapeAppearance.MyTheme.MediumComponent.RightPanelCard</item>
+    </style>
+
+    <style name="AppBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.PrimarySurface">
+        <!--
+        Material Bottom Navigation includes two main variants that inherit from the base Widget.MaterialComponents.BottomNavigationView style, with an optional style suffix: surface (default, no suffix)
+        and colored (*.Colored). Bottom Navigation labels use the textAppearanceCaption theme attribute for their typography styles.
+
+        backgroundTint: The color of the bottom navigation background. The default color is colorSurface for surface bottom navigation and colorPrimary for colored bottom navigation.
+        itemTextColor/itemIconTint: The colors of bottom navigation item icons and labels. The default colors are colorOnSurface/colorPrimary(selected) for surface bottom navigation and colorOnPrimary for colored bottom navigation.
+        itemHorizontalTranslationEnabled: A flag to set whether or not a translation animation should occur when selecting bottom navigation items. The default value is false.-->
+    </style>
+
+
+    <!--Components-->
+    <!--Bottom Sheets-->
+    <style name="ThemeOverlay.MyTheme.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/Widget.MyTheme.BottomSheet.Modal</item>
+        <item name="android:navigationBarColor">?colorSurface</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>
+    </style>
+    <style name="Widget.MyTheme.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">?shapeAppearanceLargeComponent</item>
+    </style>
+
+    <!--Navigation Drawer-->
+    <style name="Widget.MyTheme.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="itemTextAppearance">?textAppearanceBody2</item>
+    </style>
+</resources>

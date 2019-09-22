@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ /*
+  ~  *    Copyright (C) 2019 Sivakumar Chellamuthu
+  ~  *
+  ~  *    Licensed under the Apache License, Version 2.0 (the "License");
+  ~  *    you may not use this file except in compliance with the License.
+  ~  *    You may obtain a copy of the License at
+  ~  *
+  ~  *        http://www.apache.org/licenses/LICENSE-2.0
+  ~  *
+  ~  *    Unless required by applicable law or agreed to in writing, software
+  ~  *    distributed under the License is distributed on an "AS IS" BASIS,
+  ~  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  *    See the License for the specific language governing permissions and
+  ~  *    limitations under the License.
+  ~  */
+  -->
+
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/home_state">
+        <Constraint android:id="@id/viewCenter"
+            >
+            <Layout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_video_list_title" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/black"/>
+        </Constraint>
+
+        <Constraint android:id="@id/viewLeft">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_video_list_title" />
+        </Constraint>
+
+        <Constraint android:id="@id/viewRight">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_video_list_title" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/fragment_video_list_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tool_bar_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/black"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/icon_saved"
+            android:layout_width="@dimen/navigation_icon_normal"
+            android:layout_height="@dimen/navigation_icon_normal"
+            android:layout_marginStart="@dimen/navigation_icon_with_parent_side_margin"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_favorite"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/saved_materialTextView"
+            android:alpha="1"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Saved"
+            app:layout_constraintEnd_toEndOf="@+id/icon_saved"
+            app:layout_constraintStart_toStartOf="@+id/icon_saved"
+            app:layout_constraintTop_toBottomOf="@+id/icon_saved" />
+
+        <Constraint
+            android:id="@+id/icon_home"
+            android:layout_width="@dimen/navigation_home_icon_normal"
+            android:layout_height="@dimen/navigation_home_icon_normal"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_blur_circular_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_normal"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/icon_discover"
+            android:layout_width="@dimen/navigation_icon_normal"
+            android:layout_height="@dimen/navigation_icon_normal"
+            android:layout_marginEnd="@dimen/navigation_icon_with_parent_side_margin"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_normal"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_book_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/tv_dot"
+            android:alpha="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u25CF"
+            app:layout_constraintEnd_toEndOf="@+id/icon_home"
+            app:layout_constraintStart_toStartOf="@+id/icon_home"
+            app:layout_constraintTop_toBottomOf="@+id/icon_home" />
+
+        <Constraint
+            android:id="@+id/discover_materialTextView"
+            android:alpha="1"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Discover"
+            app:layout_constraintEnd_toEndOf="@+id/icon_discover"
+            app:layout_constraintStart_toStartOf="@+id/icon_discover"
+            app:layout_constraintTop_toBottomOf="@+id/icon_discover" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/left_state">
+        <Constraint android:id="@id/viewCenter"
+            >
+            <Layout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_video_list_title" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color_primary"/>
+        </Constraint>
+
+        <Constraint android:id="@id/viewLeft">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_video_list_title"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/fragment_video_list_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tool_bar_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color_primary"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/icon_saved"
+            android:layout_width="@dimen/navigation_icon_shrunk"
+            android:layout_height="@dimen/navigation_icon_shrunk"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_favorite"
+            android:layout_marginEnd="@dimen/navigation_icon_with_home_side_margin"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_shrunk"
+            app:layout_constraintEnd_toStartOf="@+id/icon_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+        <Constraint
+            android:id="@+id/saved_materialTextView"
+            android:alpha="0"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Saved"
+            app:layout_constraintEnd_toEndOf="@+id/icon_saved"
+            app:layout_constraintStart_toStartOf="@+id/icon_saved"
+            app:layout_constraintTop_toBottomOf="@+id/icon_saved" />
+
+        <Constraint
+            android:id="@+id/icon_home"
+            android:layout_width="@dimen/navigation_home_icon_shrunk"
+            android:layout_height="@dimen/navigation_home_icon_shrunk"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_blur_circular_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_shrunk"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/icon_discover"
+            android:layout_width="@dimen/navigation_icon_shrunk"
+            android:layout_height="@dimen/navigation_icon_shrunk"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_shrunk"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_book_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/navigation_icon_with_home_side_margin"
+            app:layout_constraintStart_toEndOf="@+id/icon_home" />
+
+        <Constraint
+            android:id="@+id/tv_dot"
+            android:alpha="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u25CF"
+            app:layout_constraintEnd_toEndOf="@+id/icon_saved"
+            app:layout_constraintStart_toStartOf="@+id/icon_saved"
+            app:layout_constraintTop_toBottomOf="@+id/icon_saved"/>
+
+        <Constraint
+            android:id="@+id/discover_materialTextView"
+            android:alpha="0"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Discover"
+            app:layout_constraintEnd_toEndOf="@+id/icon_discover"
+            app:layout_constraintStart_toStartOf="@+id/icon_discover"
+            app:layout_constraintTop_toBottomOf="@+id/icon_discover" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/right_state">
+        <Constraint android:id="@id/viewRight">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_video_list_title"/>
+        </Constraint>
+
+        <Constraint android:id="@id/viewCenter">
+            <Layout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_video_list_title" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color_secondary"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/fragment_video_list_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tool_bar_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color_secondary"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/icon_saved"
+            android:layout_width="@dimen/navigation_icon_shrunk"
+            android:layout_height="@dimen/navigation_icon_shrunk"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_favorite"
+            android:layout_marginEnd="@dimen/navigation_icon_with_home_side_margin"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_shrunk"
+            app:layout_constraintEnd_toStartOf="@+id/icon_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+        <Constraint
+            android:id="@+id/saved_materialTextView"
+            android:alpha="0"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Saved"
+            app:layout_constraintEnd_toEndOf="@+id/icon_saved"
+            app:layout_constraintStart_toStartOf="@+id/icon_saved"
+            app:layout_constraintTop_toBottomOf="@+id/icon_saved" />
+
+        <Constraint
+            android:id="@+id/icon_home"
+            android:layout_width="@dimen/navigation_home_icon_shrunk"
+            android:layout_height="@dimen/navigation_home_icon_shrunk"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_blur_circular_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_shrunk"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/icon_discover"
+            android:layout_width="@dimen/navigation_icon_shrunk"
+            android:layout_height="@dimen/navigation_icon_shrunk"
+            android:layout_marginBottom="@dimen/navigation_icon_bottom_margin_shrunk"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_book_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/navigation_icon_with_home_side_margin"
+            app:layout_constraintStart_toEndOf="@+id/icon_home" />
+
+        <Constraint
+            android:id="@+id/tv_dot"
+            android:alpha="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u25CF"
+            app:layout_constraintEnd_toEndOf="@+id/icon_discover"
+            app:layout_constraintStart_toStartOf="@+id/icon_discover"
+            app:layout_constraintTop_toBottomOf="@+id/icon_discover"/>
+
+        <Constraint
+            android:id="@+id/discover_materialTextView"
+            android:alpha="0"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Discover"
+            app:layout_constraintEnd_toEndOf="@+id/icon_discover"
+            app:layout_constraintStart_toStartOf="@+id/icon_discover"
+            app:layout_constraintTop_toBottomOf="@+id/icon_discover" />
+
+    </ConstraintSet>
+
+    <Transition
+        android:id="@+id/right_swipe_transition"
+        app:constraintSetEnd="@id/right_state"
+        app:constraintSetStart="@id/home_state"
+        app:duration="200"
+        app:motionInterpolator="easeIn">
+        <OnSwipe
+            app:dragDirection="dragLeft"
+            app:maxAcceleration="20"
+            app:touchAnchorId="@id/viewRight"
+            app:touchAnchorSide="left" />
+    </Transition>
+
+    <Transition
+        android:id="@+id/left_swipe_transition"
+        app:constraintSetEnd="@id/left_state"
+        app:constraintSetStart="@id/home_state"
+        app:duration="200"
+        app:motionInterpolator="easeIn">
+        <OnSwipe
+            app:dragDirection="dragRight"
+            app:maxAcceleration="20"
+            app:touchAnchorId="@id/viewLeft"
+            app:touchAnchorSide="right" />
+    </Transition>
+</MotionScene>
