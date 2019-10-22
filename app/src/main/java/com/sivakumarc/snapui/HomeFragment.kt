@@ -24,11 +24,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.sivakumarc.snapui.databinding.HomeFragmentBinding
 import kotlinx.android.synthetic.main.home_fragment.*
 
 
 class HomeFragment : Fragment() {
+    private lateinit var binding: HomeFragmentBinding
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -36,31 +39,40 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.home_fragment, container, false)
+
+        binding = DataBindingUtil.inflate(
+                inflater,
+                R.layout.home_fragment,
+                container,
+                false
+        )
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        binding.handler = object : HomeHandler {
+            override fun onIconHomeClick(v: View) {
+                executeTransition(v, R.id.home_state)
+            }
 
-        icon_home.setOnClickListener {
-            executeTransition(it, R.id.home_state)
-        }
+            override fun onIconSavedClick(v: View) {
+                executeTransition(v, R.id.left_state)
+            }
 
-        icon_saved.setOnClickListener {
-            executeTransition(it, R.id.left_state)
-        }
+            override fun onIconDiscoverClick(v: View) {
+                executeTransition(v, R.id.right_state)
+            }
 
-        icon_discover.setOnClickListener {
-            executeTransition(it, R.id.right_state)
-        }
+            override fun onTextSavedClick(v: View) {
+                executeTransition(binding.iconSaved, R.id.left_state)
+            }
 
-        saved_materialTextView.setOnClickListener {
-            executeTransition(icon_saved, R.id.left_state)
-        }
+            override fun onTextDiscoverClick(v: View) {
+                executeTransition(binding.iconDiscover, R.id.right_state)
+            }
 
-        discover_materialTextView.setOnClickListener {
-            executeTransition(icon_discover, R.id.right_state)
         }
     }
 
@@ -69,21 +81,21 @@ class HomeFragment : Fragment() {
 
         onViewClicked(view)
 
-        if(toState == currentState) {
+        if (toState == currentState) {
             return
         }
 
-        if(toState == R.id.home_state && currentState != R.id.home_state) {
-            icon_home.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+        if (toState == R.id.home_state && currentState != R.id.home_state) {
+            binding.iconHome.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
         }
 
-        home_motion_layout.setTransition(currentState, toState)
-        home_motion_layout.setTransitionDuration(200)
-        home_motion_layout.transitionToEnd()
+        binding.homeMotionLayout.setTransition(currentState, toState)
+        binding.homeMotionLayout.setTransitionDuration(200)
+        binding.homeMotionLayout.transitionToEnd()
     }
 
     private fun onViewClicked(view: View?) {
-        view?: return
+        view ?: return
         view.startAnimation(AnimationUtils.loadAnimation(view.context, R.anim.view_clicked))
     }
 }
