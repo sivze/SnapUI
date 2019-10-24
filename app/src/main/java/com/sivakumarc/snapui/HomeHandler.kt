@@ -16,27 +16,20 @@
  *
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+package com.sivakumarc.snapui
 
-buildscript {
-    ext.kotlin_version = '1.3.50'
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
+import android.view.View
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+interface HomeHandler {
+
+    fun onIconHomeClick(v: View)
+
+    fun onIconSavedClick(v: View)
+
+    fun onIconDiscoverClick(v: View)
+
+    fun onTextSavedClick(v: View)
+
+    fun onTextDiscoverClick(v: View)
 }

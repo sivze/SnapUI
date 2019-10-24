@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ /*
   ~  *    Copyright (C) 2019 Sivakumar Chellamuthu
   ~  *
@@ -17,117 +16,135 @@
   ~  */
   -->
 
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_motion_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layoutDescription="@xml/home_scene"
-    tools:context=".HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <View
-        android:id="@+id/viewCenter"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-         />
+    <data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/viewLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:background="@android:color/transparent">
-        <com.google.android.material.card.MaterialCardView
-            style="@style/LeftPanelCard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <variable
+            name="handler"
+            type="com.sivakumarc.snapui.HomeHandler" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/home_motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/home_scene"
+        tools:context=".HomeFragment">
+
+        <View
+            android:id="@+id/viewCenter"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/viewLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/LeftPanelCard"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.card.MaterialCardView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/viewRight"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:background="@android:color/transparent">
-        <com.google.android.material.card.MaterialCardView
-            style="@style/RightPanelCard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <androidx.constraintlayout.widget.ConstraintLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/viewRight"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/RightPanelCard"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/icon_saved"
-        android:layout_width="@dimen/navigation_icon_normal"
-        android:layout_height="@dimen/navigation_icon_normal"
-        android:paddingTop="@dimen/navigation_icon_padding"
-        android:paddingBottom="@dimen/navigation_icon_padding"
-        android:paddingEnd="@dimen/navigation_icon_padding"
-        android:paddingStart="@dimen/navigation_icon_padding"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_favorite"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/icon_home"
-        android:layout_width="@dimen/navigation_home_icon_normal"
-        android:layout_height="@dimen/navigation_home_icon_normal"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_blur_circular_white_24dp"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon_saved"
+            android:layout_width="@dimen/navigation_icon_normal"
+            android:layout_height="@dimen/navigation_icon_normal"
+            android:onClick="@{handler::onIconSavedClick}"
+            android:paddingStart="@dimen/navigation_icon_padding"
+            android:paddingTop="@dimen/navigation_icon_padding"
+            android:paddingEnd="@dimen/navigation_icon_padding"
+            android:paddingBottom="@dimen/navigation_icon_padding"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_favorite" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/icon_discover"
-        android:layout_width="@dimen/navigation_icon_normal"
-        android:layout_height="@dimen/navigation_icon_normal"
-        android:paddingTop="@dimen/navigation_icon_padding"
-        android:paddingBottom="@dimen/navigation_icon_padding"
-        android:paddingEnd="@dimen/navigation_icon_padding"
-        android:paddingStart="@dimen/navigation_icon_padding"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_book_white_24dp" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon_home"
+            android:layout_width="@dimen/navigation_home_icon_normal"
+            android:layout_height="@dimen/navigation_home_icon_normal"
+            android:onClick="@{handler::onIconHomeClick}"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_blur_circular_white_24dp" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/fragment_video_list_title"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/tool_bar_height"
-        android:gravity="center"
-        android:letterSpacing="0.75"
-        android:padding="@dimen/key_line_2"
-        android:text="MotionLayout"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon_discover"
+            android:layout_width="@dimen/navigation_icon_normal"
+            android:layout_height="@dimen/navigation_icon_normal"
+            android:onClick="@{handler::onIconDiscoverClick}"
+            android:paddingStart="@dimen/navigation_icon_padding"
+            android:paddingTop="@dimen/navigation_icon_padding"
+            android:paddingEnd="@dimen/navigation_icon_padding"
+            android:paddingBottom="@dimen/navigation_icon_padding"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_book_white_24dp" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/saved_materialTextView"
-        style="@style/TextAppearance.MyTheme.Subtitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Left" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_video_list_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tool_bar_height"
+            android:gravity="center"
+            android:letterSpacing="0.75"
+            android:padding="@dimen/key_line_2"
+            android:text="MotionLayout"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_dot"
-        style="@style/TextAppearance.MyTheme.Subtitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="\u25CF"
-        android:textSize="8sp" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/saved_materialTextView"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{handler::onTextSavedClick}"
+            android:text="Left" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/discover_materialTextView"
-        style="@style/TextAppearance.MyTheme.Subtitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Right" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_dot"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="\u25CF"
+            android:textSize="8sp" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/discover_materialTextView"
+            style="@style/TextAppearance.MyTheme.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{handler::onTextDiscoverClick}"
+            android:text="Right" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>
